@@ -1,0 +1,13 @@
+@import '../../styles.scss';
+
+app-auth {
+    .header {
+        background-color: $m-orange;
+        padding: 20px 0;
+    }
+    
+    h1 {
+        color: $m-light-text;
+        margin-bottom: 0;
+    }
+}

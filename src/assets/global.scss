@@ -1,0 +1,24 @@
+$m-red: #E53935;
+$m-purple: #AB47BC;
+$m-blue: #2979FF; 
+$m-indigo: #3949AB;
+$m-cyan: #00BCD4;
+$m-smoke-blue: #E8EAF6;
+$m-teal: #26A69A;
+$m-green: #4CAF50;
+$m-orange: #FF8F00;
+$m-dark-gray: #616161;
+$m-gray: #E0E0E0;
+$m-dark-text: #263238;
+$m-light-text: #ECEFF1;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $m-smoke-blue;
+    color: $m-dark-text;
+}
+
+h1 {
+    color: $m-orange;
+}

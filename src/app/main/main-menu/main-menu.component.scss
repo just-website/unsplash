@@ -1,0 +1,53 @@
+@import '../../../styles.scss';
+.main-menu {
+    display: inline-block;
+    background-color: #fff;
+    min-width: 250px;
+    height: calc(100vh - 78px);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    padding-top: 20px;
+    padding-left: 15px;
+    position: fixed;
+    margin-top: 78px;
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-link {
+        font-weight: bold;
+    }
+    
+    .nav-item {
+        transition: .25s;
+        opacity: .75;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 20px;
+        &:hover {
+                opacity: .5;
+            }
+    }
+
+    .active {
+        &.nav-item {
+            transition: .25s;
+            opacity: 1;
+            &:hover {
+                opacity: .75;
+            }
+        }
+        .icon {
+            fill: $m-orange;
+        }
+
+        .nav-link {
+            &:hover {
+                color: $m-orange;
+            }
+            color: $m-orange;
+        }
+    }
+}

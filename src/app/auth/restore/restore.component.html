@@ -1,0 +1,31 @@
+<div class="form-wrapper">
+    <h2>Восстановление пароля</h2>
+    <a class="logo" href="" title="logo"></a>
+    <div class="alert" [ngClass]="{
+                'alert--error' : message.data.type === 'Ошибка',
+                'alert--succes' : message.data.type === 'Успех'
+            }" role="alert" @hideAnimation *ngIf="message.data.type">
+        <h4 class="alert-heading">{{message.data.type}}</h4>
+        <hr>
+        <p class="mb-0">{{message.data.message}}</p>
+    </div>
+    <form [formGroup]="restoreForm" (ngSubmit)="formSubmit()" novalidate>
+        <div class="form-group">
+            <label for="resMail">Введите email указанный при регистрации</label>
+            <input type="email" class="form-control" id="resMail" aria-describedby="emailHelp"
+                placeholder="Введите email" name="mail" required formControlName="email">
+            <small class="form-text error" *ngIf="restoreForm.get('email').errors?.email" @hideAnimation>
+                Введите валидный email.
+            </small>
+            <small class="form-text error"
+                *ngIf="restoreForm.get('email').touched && restoreForm.get('email').errors?.required" @hideAnimation>
+                Email не может быть пустым
+            </small>
+            <small class="form-text text-muted">На указанный email будет отправлено письмо с ссылкой для
+                восстановления.</small>
+        </div>
+
+        <button type="submit" class="btn" [disabled]="restoreForm.invalid">Отправить</button>
+    </form>
+    <p class="link">Вернуться <a routerLink="../login" href="">назад</a>.</p>
+</div>

@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "admin",
+      "password": "00000000",
+      "email": "admin@admin.com"
+    }
+  ],
+  "mockCards": [
+    {
+      "title": "Lorem ipsum dolor sit amet.",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, blanditiis voluptatibus quis aspernatur sunt iure vero accusamus impedit repudiandae, facere nihil, quisquam tempore? Cumque porro vero adipisci commodi, rem voluptatem ratione sunt sed sequi tempore dolorum similique eum nostrum tenetur ut maiores ipsam fuga nulla harum nemo quos voluptate. Laudantium!"
+    },
+    {
+      "title": "Lorem ipsum dolor sit.",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime enim quasi totam ipsum, expedita nobis odio laboriosam similique eaque quia mollitia autem, voluptatem vitae nam, cupiditate perspiciatis neque inventore dolore?"
+    },
+    {
+      "tite": "Lorem ipsum dolor sit amet consectetur adipisicing",
+      "text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur quam impedit, aut nemo reiciendis saepe quis odit, ipsam numquam culpa praesentium quaerat totam consectetur officia distinctio esse iusto maiores modi."
+    },
+    {
+      "tite": "Lorem ipsum dolor sit amet consectetur adipisicing",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex dolor hic, corrupti aliquid deleniti placeat provident corporis laboriosam! Dolorum, illum placeat. Dolor est deserunt et eos consectetur magni odit quaerat aliquam, eaque iusto rerum dignissimos consequuntur deleniti. Consequatur, quod ea."
+    }
+  ]
+}
