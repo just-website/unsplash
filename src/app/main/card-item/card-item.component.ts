@@ -10,6 +10,8 @@ import { UrlService } from 'src/app/common/services/url.service';
 export class CardItemComponent implements OnInit {
   @Input() title: string;
   @Input() text: string;
+  @Input() preview: any;
+  @Input() id: any;
   constructor(
   ) { }
 

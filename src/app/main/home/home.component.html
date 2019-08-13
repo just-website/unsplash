@@ -1,4 +1,5 @@
 <div class="content-container" [@listAnimation]="cardList.length">
-    <app-card-item class="card-item" *ngFor="let card of cardList; index as i" [title]="card.title" [text]="card.text">
+    <app-card-item class="card-item" *ngFor="let card of cardList; index as i" [title]="card.title"
+        [text]="card.user.first_name" [preview]="card.preview_photos" [id]="card.id">
     </app-card-item>
 </div>

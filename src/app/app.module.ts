@@ -9,6 +9,7 @@ import { AuthorizeService } from './common/services/authorize.service';
 import { MainModule } from './main/main.module';
 import { UrlService } from './common/services/url.service';
 import { UnsplashService } from './common/services/unsplash.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UnsplashService } from './common/services/unsplash.service';
     RoutingModule,
     BrowserAnimationsModule,
     AuthModule,
-    MainModule
+    MainModule,
+    HttpClientModule
   ],
   providers: [
     AuthorizeService,

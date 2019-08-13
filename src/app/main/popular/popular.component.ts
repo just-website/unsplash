@@ -16,7 +16,7 @@ export class PopularComponent implements OnInit {
   }
 
   getPhoto() {
-    console.log(this.unsplash.getRandomPhoto());
+    console.log(this.unsplash.getGroups());
   }
 
 }

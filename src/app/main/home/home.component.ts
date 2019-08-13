@@ -21,16 +21,22 @@ export class HomeComponent implements OnInit {
     private unsplah: UnsplashService
   ) { }
 
-  private cardList = [];
+  private cardList: any = [];
   ngOnInit() {
-    // this.getCards();
+    this.getGroups();
+
   }
 
-  getCards() {
-    this.http.get('mockCards').subscribe(
-      data => {
-        this.cardList = data;
-      })
+  getGroups() {
+    this.unsplah.getGroups()
+      .subscribe(
+        data => {
+          this.cardList = data;
+          console.log(data);
+
+        }
+      )
+
   }
 
 
