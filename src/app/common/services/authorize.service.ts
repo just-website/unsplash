@@ -3,17 +3,17 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthorizeService {
-    public authoraze: boolean = false;
+    public authoraze: boolean = !!window.localStorage.getItem('authorize');
 
     login(user: User) {
-        window.localStorage.setItem('user', JSON.stringify(user));
+        window.localStorage.setItem(user.email, JSON.stringify(user));
         this.authoraze = true;
+        this.setAuthorize(user);
     }
 
     logout() {
         this.authoraze = false;
-        console.log(this.authoraze);
-
+        window.localStorage.removeItem('authorize')
     }
 
     isAuthorize(): boolean {
@@ -21,9 +21,14 @@ export class AuthorizeService {
     }
 
     getUserName() {
-        const data = window.localStorage.getItem('user')
+        const data = window.localStorage.getItem('authorize')
         if (data) {
             return JSON.parse(data).name || JSON.parse(data).email;
         } else throw new Error('Нет сохранённого пользователя');
+    }
+
+    setAuthorize(user) {
+        this.authoraze = true;
+        window.localStorage.setItem('authorize', JSON.stringify(user));
     }
 }

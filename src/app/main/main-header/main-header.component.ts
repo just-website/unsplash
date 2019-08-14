@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class MainHeaderComponent implements OnInit {
 
   private userName: string;
-  private isAuthorize: boolean;
+  private isAthorize: boolean;
   constructor(
     private authorize: AuthorizeService,
     private router: Router,
@@ -20,22 +20,23 @@ export class MainHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.setUserName();
-    this.isAuthorize = this.authorize.isAuthorize();
+    console.log('isAthorize', this.authorize.isAuthorize());
+    this.isAthorize = this.authorize.isAuthorize();
+
   }
 
   logout() {
     this.authorize.logout();
-    this.router.navigate(['/auth'])
+    this.router.navigate(['/auth']);
+    console.log('test');
+
   }
 
   setUserName() {
-    if (this.authorize.isAuthorize) {
-      try {
-        this.userName = this.authorize.getUserName();
-      } catch (err) {
-        console.log(err.message);
-        this.userName = 'Не авторизован';
-      }
+    if (this.authorize.isAuthorize()) {
+      this.userName = this.authorize.getUserName();
+    } else {
+      this.userName = 'Не авторизован';
     }
   }
 

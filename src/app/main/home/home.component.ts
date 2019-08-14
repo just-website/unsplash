@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   private cardList: any = [];
   ngOnInit() {
     this.getGroups();
-
   }
 
   getGroups() {
@@ -32,13 +31,15 @@ export class HomeComponent implements OnInit {
       .subscribe(
         data => {
           this.cardList = data;
-          console.log(data);
-
         }
       )
-
   }
 
-
-
+  setBlur(event, card) {
+    event ?
+      this.cardList.forEach(element => {
+        return element === card ? element.blur = false : element.blur = true
+      })
+      : this.cardList.forEach(element => element.blur = false)
+  }
 }

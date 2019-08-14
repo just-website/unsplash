@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [ngClass]="{'blur': blur}">
     <div class="card-img-top" src="" alt="Card image cap">
         <img *ngFor="let img of preview" [src]="img.urls.thumb" alt="" class="card-img__prev">
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, HostListener, Output, EventEmitter } from '@angular/core';
 import { UrlService } from 'src/app/common/services/url.service';
 
 @Component({
@@ -12,8 +12,21 @@ export class CardItemComponent implements OnInit {
   @Input() text: string;
   @Input() preview: any;
   @Input() id: any;
+  @Input() blur: boolean;
   constructor(
   ) { }
+
+  @Output() onMouseEvent = new EventEmitter<boolean>();
+
+  @HostListener('mouseenter')
+  onMouseEnter() {
+    this.onMouseEvent.emit(true);
+  }
+
+  @HostListener('mouseleave')
+  onMouseLeave() {
+    this.onMouseEvent.emit(false);
+  }
 
   private cardList;
   ngOnInit() {

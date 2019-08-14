@@ -5,6 +5,13 @@
     overflow: hidden;
     transition: .25s;
 
+    &.blur {
+        opacity: .75;
+        filter: blur(1px);
+        transition: .25s;
+        transform: scale(1);
+    }
+
     &:hover {
         transition: .25s;
         box-shadow: 0px 0px 14px 1px;
