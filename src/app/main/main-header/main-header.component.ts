@@ -20,9 +20,7 @@ export class MainHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.setUserName();
-    console.log('isAthorize', this.authorize.isAuthorize());
     this.isAthorize = this.authorize.isAuthorize();
-
   }
 
   logout() {

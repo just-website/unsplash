@@ -20,16 +20,15 @@
                 {{userName}}
             </div>
             <div class="dropdown">
-                <a class="dropdown__item" *ngIf="isAuthorize">
+                <a class="dropdown__item">
                     Профиль
                 </a>
-                <a class="dropdown__item" click="showAbout()">
+                <a class="dropdown__item" click="showAbout()" *ngIf="isAthorize">
                     О приложении
                 </a>
-                <a class="dropdown__item" (click)="logout()">
-                    {{ isAuthorize ? 'Выйти' : 'Войти' }}
-                </a>
+                <a class="dropdown__item" (click)="logout()">{{ isAthorize ? 'Выйти' : 'Войти'}}</a>
             </div>
         </div>
     </div>
+
 </div>

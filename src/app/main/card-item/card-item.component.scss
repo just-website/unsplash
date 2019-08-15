@@ -6,8 +6,7 @@
     transition: .25s;
 
     &.blur {
-        opacity: .75;
-        filter: blur(1px);
+        opacity: .65;
         transition: .25s;
         transform: scale(1);
     }
