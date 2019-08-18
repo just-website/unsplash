@@ -1,6 +1,6 @@
 import { trigger, animateChild, query, animate, group, style, transition, state, stagger } from '@angular/animations';
 
-export const AuthAnimation = (triggerName) => {
+export const RoutAnimation = (triggerName) => {
     return trigger(triggerName, [
         transition('* => *', [
             style({ width: '100%', position: 'relative' }),
@@ -74,15 +74,15 @@ export const ShowHideAnimation = (triggerName) => {
 export const CardShowAnimation = (triggerName) => {
     return trigger(triggerName, [
         transition('* => *', [
-            query(':leave', [
-                stagger(100, [
-                    animate('0.5s', style({ opacity: 0 }))
+            query(':leave:not(.loader)', [
+                stagger(75, [
+                    animate('0.3s', style({ opacity: 0 }))
                 ]),
 
             ], { optional: true }),
-            query(':enter', [
+            query(':enter:not(.loader)', [
                 style({ opacity: 0 }),
-                stagger(200, [
+                stagger(150, [
                     animate('.3s', style({ opacity: 1 }))
                 ])
             ], { optional: true })

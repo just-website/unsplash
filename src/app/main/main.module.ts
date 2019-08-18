@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { PopularComponent } from './popular/popular.component';
 import { ToggleActiveDirective } from '../common/directives/toggleActive.directive';
 import { CardItemComponent } from './card-item/card-item.component';
+import { CollectionComponent } from './collection/collection.component';
+import { PhotoItemComponent } from './photo-item/photo-item.component';
+import { PhotoModal } from '../common/services/photo-modal.service';
 
 @NgModule({
     declarations: [
@@ -19,15 +22,19 @@ import { CardItemComponent } from './card-item/card-item.component';
         HomeComponent,
         PopularComponent,
         ToggleActiveDirective,
-        CardItemComponent
+        CardItemComponent,
+        CollectionComponent,
+        PhotoItemComponent
     ],
     imports: [
         CommonModule,
         MainRoutingModule,
         AppCommonModule,
-        HttpClientModule
+        HttpClientModule,
     ],
-    providers: []
+    providers: [
+        PhotoModal
+    ]
 })
 
 export class MainModule { }

@@ -1,0 +1,13 @@
+@import '../../../styles.scss';
+
+.photo-img {
+    &__prev {
+        object-fit: cover;
+        max-height: 100%;
+        min-width: 100%;
+    }
+}
+
+.btn {
+    color: $m-light-text;
+}

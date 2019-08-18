@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, RouterOutlet, ActivatedRoute } from '@angular/router';
-import { AuthAnimation } from '../common/animations';
+import { RoutAnimation } from '../common/animations';
 import { AuthorizeService } from '../common/services/authorize.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthorizeService } from '../common/services/authorize.service';
     styleUrls: ['./auth.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations: [
-        AuthAnimation('routeAnimations'),
+        RoutAnimation('routeAnimations'),
     ]
 })
 export class AuthComponent implements OnInit {
@@ -21,11 +21,11 @@ export class AuthComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        console.log(this.authorize.isAuthorize());
-
-        this.authorize.isAuthorize() ?
-            this.router.navigate(['main/title']) :
-            this.router.navigate(['auth/login']);
+        if (this.authorize.isAuthorize()) {
+            this.router.navigate(['main'])
+        } else {
+            this.router.navigate(['auth/login'])
+        }
     }
 
     prepareRoute(outlet: RouterOutlet) {

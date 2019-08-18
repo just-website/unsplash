@@ -1,6 +1,5 @@
 import { Component, OnInit, ErrorHandler, ViewEncapsulation } from '@angular/core';
 import { UrlService } from 'src/app/common/services/url.service';
-import { map } from 'rxjs/operators';
 import { CardShowAnimation } from 'src/app/common/animations';
 import { UnsplashService } from 'src/app/common/services/unsplash.service';
 
@@ -21,6 +20,8 @@ export class HomeComponent implements OnInit {
     private unsplah: UnsplashService
   ) { }
 
+  private isLoaded = false;
+
   private cardList: any = [];
   ngOnInit() {
     this.getGroups();
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
       .subscribe(
         data => {
           this.cardList = data;
+          this.isLoaded = true;
         }
       )
   }

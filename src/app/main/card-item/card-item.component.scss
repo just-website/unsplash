@@ -13,8 +13,8 @@
 
     &:hover {
         transition: .25s;
-        box-shadow: 0px 0px 14px 1px;
-        transform: scale(1.05);
+        box-shadow: 0px 1px 9px 3px rgba(0,0,0,.3);
+        transform: scale(1.025);
         z-index: 10;
     }
 }
@@ -33,7 +33,7 @@
 .card-img__prev {
     width: 160px;
     height: 120px;
-    object-fit: none;
+    object-fit: cover;
 }
 
 .card-title {

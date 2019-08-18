@@ -21,12 +21,12 @@
             </div>
             <div class="dropdown">
                 <a class="dropdown__item">
-                    Профиль
+                    Profile
                 </a>
-                <a class="dropdown__item" click="showAbout()" *ngIf="isAthorize">
-                    О приложении
+                <a class="dropdown__item" click="showAbout()" *ngIf="isAuthorize">
+                    About
                 </a>
-                <a class="dropdown__item" (click)="logout()">{{ isAthorize ? 'Выйти' : 'Войти'}}</a>
+                <a class="dropdown__item" (click)="logout()">{{ isAuthorize ? 'Login' : 'Logout'}}</a>
             </div>
         </div>
     </div>

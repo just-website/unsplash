@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthAnimation } from '../common/animations';
+import { RoutAnimation } from '../common/animations';
 import { RouterOutlet, Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { RouterOutlet, Router } from '@angular/router';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
   animations: [
-    AuthAnimation('routeAnimations'),
+    RoutAnimation('routeAnimations'),
   ]
 })
 export class MainComponent implements OnInit {

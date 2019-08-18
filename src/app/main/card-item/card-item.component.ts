@@ -28,7 +28,6 @@ export class CardItemComponent implements OnInit {
     this.onMouseEvent.emit(false);
   }
 
-  private cardList;
   ngOnInit() {
   }
 

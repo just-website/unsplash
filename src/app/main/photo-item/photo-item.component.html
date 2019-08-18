@@ -1,0 +1,10 @@
+<div class="card" [ngClass]="{'blur': blur}">
+    <div class="card-img-top" src="" alt="Card image cap">
+        <img [src]="photo.urls.regular" alt="" class="photo-img__prev">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{photo.title}}</h5>
+        <p class="card-text">Author: {{photo.user.name}}</p>
+        <button class="btn btn-primary" (click)="showPhoto()">Show photo</button>
+    </div>
+</div>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './main.component';
 import { HomeComponent } from './home/home.component';
 import { PopularComponent } from './popular/popular.component';
+import { CollectionComponent } from './collection/collection.component';
 
 const routes: Routes = [
     {
@@ -10,6 +11,7 @@ const routes: Routes = [
             { path: '', redirectTo: 'home', pathMatch: 'full', data: { animation: 'home' } },
             { path: 'home', component: HomeComponent, data: { animation: 'home' } },
             { path: 'popular', component: PopularComponent, data: { animation: 'popular' } },
+            { path: 'collection/:id', component: CollectionComponent, data: { animation: 'collection' } },
             { path: '**', redirectTo: 'home', data: { animation: 'home' } },
         ]
     }

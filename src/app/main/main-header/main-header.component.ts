@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class MainHeaderComponent implements OnInit {
 
   private userName: string;
-  private isAthorize: boolean;
+  private isAuthorize: boolean;
   constructor(
     private authorize: AuthorizeService,
     private router: Router,
@@ -20,14 +20,12 @@ export class MainHeaderComponent implements OnInit {
 
   ngOnInit() {
     this.setUserName();
-    this.isAthorize = this.authorize.isAuthorize();
+    this.isAuthorize = this.authorize.isAuthorize();
   }
 
   logout() {
     this.authorize.logout();
     this.router.navigate(['/auth']);
-    console.log('test');
-
   }
 
   setUserName() {
@@ -39,7 +37,6 @@ export class MainHeaderComponent implements OnInit {
   }
 
   showAbout() {
-    console.log('test');
-
+    console.log('showAbout');
   }
 }

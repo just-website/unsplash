@@ -31,4 +31,8 @@ export class UnsplashService {
             );
     }
 
+    getCollection(id) {
+        return this.http.get(`https://api.unsplash.com/collections/${id}/photos?per_page=12`, httpOptions);
+    }
+
 }   
