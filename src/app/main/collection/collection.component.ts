@@ -44,7 +44,7 @@ export class CollectionComponent implements OnInit {
 
   showModal(photo) {
     console.log(photo);
-    this.modal.show()
+    this.modal.show(photo)
   }
 
 }

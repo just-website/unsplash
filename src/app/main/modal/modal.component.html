@@ -1,0 +1,32 @@
+<div class="modal" #modalPopup>
+    <div class="modal-container">
+        <div class="modal-close" (click)="closeModal()"></div>
+        <img [src]="modal.photo.urls.regular" [alt]="modal.photo.alt_description" class="modal-img">
+        <div class="modal-dscr">
+            <div class="modal-dscr__item">
+                <div class="modal-dscr__title">
+                    Date:
+                </div>
+                <div class="modal-dscr__text">
+                    {{modal.photo.created_at | amDateFormat: 'YYYY-MM-DD HH:MM' }}
+                </div>
+            </div>
+            <div class="modal-dscr__item">
+                <div class="modal-dscr__title">
+                    Download:
+                </div>
+                <div class="modal-dscr__text">
+                    <a [href]="modal.photo.links.download" class="modal-link"></a>
+                </div>
+            </div>
+            <div class="modal-dscr__item" (click)="addFavorites">
+                <div class="modal-dscr__title">
+                    Add to favorites:
+                </div>
+                <div class="modal-dscr__text">
+                    <button class="modal-dscr__fav-btn"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

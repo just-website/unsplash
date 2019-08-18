@@ -10,6 +10,7 @@ import { MainModule } from './main/main.module';
 import { UrlService } from './common/services/url.service';
 import { UnsplashService } from './common/services/unsplash.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     AuthModule,
     MainModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthorizeService,

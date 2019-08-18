@@ -1,5 +1,9 @@
 <app-main-header></app-main-header>
-<app-main-menu></app-main-menu>
-<div [@routeAnimations]="prepareRoute(outlet)">
-    <router-outlet #outlet="outlet"></router-outlet>
+<div class="main-wrapper">
+    <app-main-menu></app-main-menu>
+    <div [@routeAnimations]="prepareRoute(outlet)" class="router-outlet">
+        <router-outlet #outlet="outlet" (activate)="resetScroll()">
+        </router-outlet>
+    </div>
+    <app-modal *ngIf="modal.isShow" @modalAnimation></app-modal>
 </div>

@@ -34,8 +34,6 @@ export class PhotoItemComponent implements OnInit {
   }
 
   showPhoto() {
-    this.showCurrentPhoto.emit();
-    console.log('test');
-
+    this.showCurrentPhoto.emit(this.photo);
   }
 }

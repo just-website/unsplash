@@ -4,11 +4,9 @@
     </div>
     <ng-container *ngIf="isLoaded">
         <app-photo-item class="card-item" *ngFor="let photo of collection; index as i" [photo]="photo"
-            (onMouseEvent)="setBlur($event, photo)" (showCurrentPhoto)="showModal(photo)"
-            [blur]="photo.blur !== 'undefined' ? photo.blur : false">
+            (onMouseEvent)="setBlur($event, photo)" [blur]="photo.blur !== 'undefined' ? photo.blur : false"
+            (showCurrentPhoto)="showModal($event)">
         </app-photo-item>
     </ng-container>
-</div>
-<div class="modal" *ngIf="modal.isShow">
-    <div class="modal-container"></div>
+
 </div>

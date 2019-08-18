@@ -63,6 +63,21 @@
             font-weight: 600;
             margin-right: 20px;
         }
+
+        &__fav-btn {
+            border: 0;
+            background: 0;
+            width: 30px;
+            height: 30px;
+            background-image: url('/assets/img/icons/gray-star.svg');
+            position: relative;
+            top: -3px;
+            opacity: .5;
+
+            &.added {
+                opacity: 1;
+            }
+        }
     }
 
     &-link {
@@ -72,4 +87,6 @@
         background-repeat: no-repeat;
         display: block;
     }
+
+    
 }

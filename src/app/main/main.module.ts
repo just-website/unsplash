@@ -13,6 +13,8 @@ import { CardItemComponent } from './card-item/card-item.component';
 import { CollectionComponent } from './collection/collection.component';
 import { PhotoItemComponent } from './photo-item/photo-item.component';
 import { PhotoModal } from '../common/services/photo-modal.service';
+import { MomentModule } from 'ngx-moment';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
     declarations: [
@@ -24,13 +26,15 @@ import { PhotoModal } from '../common/services/photo-modal.service';
         ToggleActiveDirective,
         CardItemComponent,
         CollectionComponent,
-        PhotoItemComponent
+        PhotoItemComponent,
+        ModalComponent
     ],
     imports: [
         CommonModule,
         MainRoutingModule,
         AppCommonModule,
         HttpClientModule,
+        MomentModule
     ],
     providers: [
         PhotoModal

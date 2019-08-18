@@ -1,13 +1,6 @@
 @import '../../../styles.scss';
 .main-menu {
     display: inline-block;
-    background-color: #fff;
-    min-width: 250px;
-    height: calc(100vh - 78px);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    padding-top: 20px;
-    padding-left: 15px;
-    position: fixed;
     margin-top: 78px;
 
     .icon {
@@ -17,6 +10,12 @@
 
     .nav-link {
         font-weight: bold;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 0;
+        font-size: 12px;
+        font-weight: 500;
+
     }
     
     .nav-item {
@@ -24,10 +23,16 @@
         opacity: .75;
         display: flex;
         align-items: center;
+        flex-direction: column;
         cursor: pointer;
         margin-bottom: 20px;
+        
+        &:first-child {
+            padding-top: 10px;
+        }
+        
         &:hover {
-                opacity: .5;
+                opacity: .35;
             }
     }
 
@@ -36,7 +41,8 @@
             transition: .25s;
             opacity: 1;
             &:hover {
-                opacity: .75;
+                cursor: auto;
+                opacity: 1;
             }
         }
         .icon {
