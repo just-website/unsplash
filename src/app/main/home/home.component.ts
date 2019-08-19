@@ -2,6 +2,7 @@ import { Component, OnInit, ErrorHandler, ViewEncapsulation } from '@angular/cor
 import { UrlService } from 'src/app/common/services/url.service';
 import { CardShowAnimation } from 'src/app/common/animations';
 import { UnsplashService } from 'src/app/common/services/unsplash.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -30,8 +31,10 @@ export class HomeComponent implements OnInit {
   getGroups() {
     this.unsplah.getGroups()
       .subscribe(
-        data => {
-          this.cardList = data;
+        (data: Response) => {
+          console.log(data.headers.get('X-Total'));
+
+          this.cardList = data.body;
           this.isLoaded = true;
         }
       )

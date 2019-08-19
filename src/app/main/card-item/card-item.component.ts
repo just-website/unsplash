@@ -13,6 +13,7 @@ export class CardItemComponent implements OnInit {
   @Input() preview: any;
   @Input() id: any;
   @Input() blur: boolean;
+  @Input() amount: string;
   constructor(
   ) { }
 

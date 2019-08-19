@@ -18,7 +18,7 @@ export class ModalComponent implements OnInit {
   ngOnInit() { }
 
   ngAfterViewInit(): void {
-    this.renderer.setStyle(this.modalPopup.nativeElement, 'background-color', `${this.modal.photo.color}`)
+    this.renderer.setStyle(this.modalPopup.nativeElement, 'background-color', `${this.modal.photo.color}`);
   }
 
   closeModal() {

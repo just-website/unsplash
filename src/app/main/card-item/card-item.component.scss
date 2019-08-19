@@ -17,6 +17,14 @@
         transform: scale(1.025);
         z-index: 10;
     }
+
+    &-text {
+        margin-bottom: 5px;
+
+        &:last-of-type {
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .card-img-top {

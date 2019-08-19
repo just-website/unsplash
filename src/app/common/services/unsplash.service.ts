@@ -15,7 +15,8 @@ const headers = {
 const httpOptions = {
     headers: new HttpHeaders({
         Authorization: 'Client-ID dc698e73290315d4c63f3beedbeb919bca09450b105a8c2422b49a0d18d651dd'
-    })
+    }),
+    observe: 'response' as 'body'
 };
 
 @Injectable()
@@ -26,9 +27,6 @@ export class UnsplashService {
 
     getGroups() {
         return this.http.get('https://api.unsplash.com/collections?per_page=12', httpOptions)
-            .pipe(
-                data => data
-            );
     }
 
     getCollection(id) {
