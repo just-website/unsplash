@@ -10,11 +10,10 @@ import { MainModule } from './main/main.module';
 import { UrlService } from './common/services/url.service';
 import { UnsplashService } from './common/services/unsplash.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

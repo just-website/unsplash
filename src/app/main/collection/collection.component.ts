@@ -23,14 +23,18 @@ export class CollectionComponent implements OnInit {
   ) { }
   private isLoaded = false;
   private collection: any = [];
+  private totalAmount = 0;
 
   ngOnInit() {
     this.activeRoute.params.subscribe(params => {
       this.unsplash.getCollection(params.id)
-        .subscribe(data => {
-          this.collection = data;
-          this.isLoaded = true;
-        })
+        .subscribe(
+          (data: Response) => {
+            this.totalAmount = +data.headers.get('X-Total');
+            this.collection = data.body;
+            this.isLoaded = true;
+          }
+        )
     })
   }
 
@@ -43,7 +47,6 @@ export class CollectionComponent implements OnInit {
   }
 
   showModal(photo) {
-    console.log(photo);
     this.modal.show(photo)
   }
 

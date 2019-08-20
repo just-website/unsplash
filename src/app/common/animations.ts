@@ -81,9 +81,18 @@ export const CardShowAnimation = (triggerName) => {
 
             ], { optional: true }),
             query(':enter:not(.loader)', [
-                style({ opacity: 0 }),
-                stagger(150, [
-                    animate('.3s', style({ opacity: 1 }))
+                style({
+                    opacity: 0,
+                    transformOrigin: 'left',
+                    transform: 'rotateY(-90deg) translateX(-150px)'
+                }),
+                stagger(100, [
+                    animate('.3s ease-out', style({
+                        transformOrigin: '*',
+                        transform: '*',
+                        opacity: .5
+                    })),
+                    animate('.2s', style({ opacity: 1 })),
                 ])
             ], { optional: true })
         ])

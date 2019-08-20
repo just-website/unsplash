@@ -15,6 +15,8 @@ import { PhotoItemComponent } from './photo-item/photo-item.component';
 import { PhotoModal } from '../common/services/photo-modal.service';
 import { MomentModule } from 'ngx-moment';
 import { ModalComponent } from './modal/modal.component';
+import { PaginationComponent } from '../pagination/pagination.component';
+
 
 @NgModule({
     declarations: [
@@ -27,7 +29,8 @@ import { ModalComponent } from './modal/modal.component';
         CardItemComponent,
         CollectionComponent,
         PhotoItemComponent,
-        ModalComponent
+        ModalComponent,
+        PaginationComponent
     ],
     imports: [
         CommonModule,

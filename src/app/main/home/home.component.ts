@@ -1,6 +1,6 @@
 import { Component, OnInit, ErrorHandler, ViewEncapsulation } from '@angular/core';
 import { UrlService } from 'src/app/common/services/url.service';
-import { CardShowAnimation } from 'src/app/common/animations';
+import { CardShowAnimation, ShowHideAnimation } from 'src/app/common/animations';
 import { UnsplashService } from 'src/app/common/services/unsplash.service';
 import { map } from 'rxjs/operators';
 
@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: [
-    CardShowAnimation('listAnimation')
+    CardShowAnimation('listAnimation'),
+    ShowHideAnimation('cardAnimation')
   ]
 
 })
@@ -22,18 +23,21 @@ export class HomeComponent implements OnInit {
   ) { }
 
   private isLoaded = false;
+  private lastElem;
 
   private cardList: any = [];
+  private totalAmount = 0;
   ngOnInit() {
     this.getGroups();
+    console.log(this.lastElem);
+
   }
 
   getGroups() {
     this.unsplah.getGroups()
       .subscribe(
         (data: Response) => {
-          console.log(data.headers.get('X-Total'));
-
+          this.totalAmount = +data.headers.get('X-Total');
           this.cardList = data.body;
           this.isLoaded = true;
         }
