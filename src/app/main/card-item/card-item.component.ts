@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, Input, HostListener, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Input, HostListener, Output, EventEmitter, ElementRef } from '@angular/core';
 import { UrlService } from 'src/app/common/services/url.service';
 
 @Component({
@@ -8,16 +8,15 @@ import { UrlService } from 'src/app/common/services/url.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class CardItemComponent implements OnInit {
-  @Input() title: string;
-  @Input() text: string;
-  @Input() preview: any;
-  @Input() id: any;
   @Input() blur: boolean;
-  @Input() amount: string;
+  @Input() lastItem: string;
+  @Input() photo;
   constructor(
+    private element: ElementRef
   ) { }
 
   @Output() onMouseEvent = new EventEmitter<boolean>();
+  @Output() lastElemEvent = new EventEmitter<ElementRef>();
 
   @HostListener('mouseenter')
   onMouseEnter() {
@@ -30,6 +29,12 @@ export class CardItemComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+    if (this.lastItem) {
+      this.lastElemEvent.emit(this.element.nativeElement)
+    }
   }
 
 }

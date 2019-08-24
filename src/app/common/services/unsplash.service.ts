@@ -25,12 +25,12 @@ export class UnsplashService {
         public http: HttpClient
     ) { }
 
-    getGroups() {
-        return this.http.get('https://api.unsplash.com/collections?per_page=12', httpOptions)
+    getGroups(pageNum = 1) {
+        return this.http.get(`https://api.unsplash.com/collections?per_page=12&page=${pageNum}`, httpOptions)
     }
 
-    getCollection(id) {
-        return this.http.get(`https://api.unsplash.com/collections/${id}/photos?per_page=12`, httpOptions);
+    getCollection(id, pageNum = 1) {
+        return this.http.get(`https://api.unsplash.com/collections/${id}/photos?per_page=12&page=${pageNum}`, httpOptions);
     }
 
 }   

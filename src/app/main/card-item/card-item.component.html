@@ -1,11 +1,11 @@
 <div class="card" [ngClass]="{'blur': blur}">
     <div class="card-img-top" src="" alt="Card image cap">
-        <img *ngFor="let img of preview" [src]="img.urls.thumb" alt="" class="card-img__prev">
+        <img *ngFor="let img of photo.preview_photos" [src]="img.urls.thumb" alt="" class="card-img__prev">
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text">Author: {{text}}</p>
-        <p class="card-text">Total photos: {{amount}}</p>
-        <a [routerLink]="['/main', 'collection', id]" class="btn btn-primary">Go to collection</a>
+        <h5 class="card-title">{{photo.title}}</h5>
+        <p class="card-text">Author: {{ photo.user.first_name }}</p>
+        <p class="card-text">Total photos: {{ photo.total_photos }}</p>
+        <a [routerLink]="['/main', 'collection', photo.id]" class="btn btn-primary">Go to collection</a>
     </div>
 </div>

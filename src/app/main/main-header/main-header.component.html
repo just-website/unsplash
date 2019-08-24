@@ -26,7 +26,7 @@
                 <a class="dropdown__item" click="showAbout()" *ngIf="isAuthorize">
                     About
                 </a>
-                <a class="dropdown__item" (click)="logout()">{{ isAuthorize ? 'Login' : 'Logout'}}</a>
+                <a class="dropdown__item" (click)="logout()">{{ !isAuthorize ? 'Login' : 'Logout'}}</a>
             </div>
         </div>
     </div>

@@ -1,8 +1,9 @@
-import { Component, OnInit, ErrorHandler, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ElementRef, Input, AfterViewInit, ViewChild } from '@angular/core';
 import { UrlService } from 'src/app/common/services/url.service';
 import { CardShowAnimation, ShowHideAnimation } from 'src/app/common/animations';
 import { UnsplashService } from 'src/app/common/services/unsplash.service';
-import { map } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
+import { Observable, fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -15,26 +16,24 @@ import { map } from 'rxjs/operators';
   ]
 
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('wrapper', { static: false }) element: ElementRef;
   constructor(
     private http: UrlService,
-    private unsplah: UnsplashService
+    private unsplah: UnsplashService,
   ) { }
 
   private isLoaded = false;
   private lastElem;
+  private scrollEvent: Observable<any>;
 
   private cardList: any = [];
   private totalAmount = 0;
+  private currentPage = 1;
+  private showMoreColletions = true;
+
   ngOnInit() {
-    this.getGroups();
-    console.log(this.lastElem);
-
-  }
-
-  getGroups() {
-    this.unsplah.getGroups()
+    this.getGroups()
       .subscribe(
         (data: Response) => {
           this.totalAmount = +data.headers.get('X-Total');
@@ -44,11 +43,70 @@ export class HomeComponent implements OnInit {
       )
   }
 
+  ngAfterViewInit() {
+    // this.detectLastItem();
+  }
+
+  setShowMore() {
+    this.showMoreColletions = this.totalAmount - (this.currentPage * 12) > 0;
+  }
+
+  getGroups(pageNum = 1) {
+    return this.unsplah.getGroups(pageNum)
+  }
+
   setBlur(event, card) {
     event ?
       this.cardList.forEach(element => {
         return element === card ? element.blur = false : element.blur = true
       })
       : this.cardList.forEach(element => element.blur = false)
+  }
+
+  // detectLastItem() {
+  //   this.scrollEvent = fromEvent(window, 'scroll');
+  //   this.scrollEvent
+  //     .pipe(
+  //       debounceTime(100),
+  //     )
+  //     .subscribe(
+  //       event => {
+  //         console.log(event);
+  //       }
+  //     )
+  // }
+
+  private observer = new IntersectionObserver(
+    (entries, observer) => {
+      if (entries[0].intersectionRatio >= 1) {
+        this.updateCardList();
+        observer.unobserve(this.observeElem);
+      }
+    }, {
+      root: null, rootMargin: '0px', threshold: 1.0
+    }
+  )
+
+  updateCardList() {
+    this.isLoaded = false;
+    this.getGroups(++this.currentPage)
+      .subscribe((data: Response) => {
+        let arr = data.body;
+        this.cardList = this.cardList.concat(arr);
+        this.isLoaded = true;
+      })
+  }
+
+  private observeElem: any;
+  setObsrve(element) {
+    if (this.observeElem == element) {
+      return;
+    } else {
+      if (this.showMoreColletions) {
+        this.observeElem = element;
+        this.observer.observe(element);
+        this.setShowMore()
+      }
+    }
   }
 }

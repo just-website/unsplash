@@ -1,19 +1,18 @@
 <div class="content-container" [@listAnimation]="cardList.length">
-    <div class="row mx-auto">
-        <ng-container *ngIf="isLoaded">
-            <app-card-item class="card-item" *ngFor="let card of cardList; index as i; last as isLast"
-                [title]="card.title" [text]="card.user.first_name || null" [preview]="card.preview_photos"
-                [id]="card.id" [blur]="card.blur !== 'undefined' ? card.blur : false" [amount]="card.total_photos"
-                (onMouseEvent)="setBlur($event, card)" @cardAnimation>
+    <div class="row mx-auto" #wrapper>
+        <ng-container *ngIf="this.cardList.length">
+            <app-card-item class="card-item" *ngFor="let card of cardList; index as i; last as isLast" [photo]="card"
+                [blur]="card.blur !== 'undefined' ? card.blur : false" (onMouseEvent)="setBlur($event, card)"
+                @cardAnimation [lastItem]="isLast" (lastElemEvent)="setObsrve($event)">
             </app-card-item>
         </ng-container>
-        <div class="loader" *ngIf="!isLoaded">
-            <h2>Loading...</h2>
-        </div>
+    </div>
+    <div class="loader" *ngIf="!isLoaded">
+        <h2>Loading...</h2>
     </div>
 
-    <div class="row mx-auto">
+    <!-- <div class="">
         <app-pagination *ngIf="isLoaded"></app-pagination>
-    </div>
+    </div> -->
 
 </div>
