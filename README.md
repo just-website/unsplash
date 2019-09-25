@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `npm run dev` for a dev server. Navigate to `http://localhost:4200/` for browse App and navigate to `http://localhost:4200/` for view database json.
+Run `npm run dev` for a dev server. Navigate to `http://localhost:4200/` for browse App.
 
 
 ## Preview images
@@ -17,7 +17,7 @@ Run `npm run dev` for a dev server. Navigate to `http://localhost:4200/` for bro
 
 ![Content main page](https://github.com/just-website/my-radio-app/blob/master/src/img/main.jpg "Content main")
 
-![Content collection page](https://github.com/just-website/my-radio-app/blob/master/src/img/main.jpg "Content collection")
+![Content collection page](https://github.com/just-website/my-radio-app/blob/master/src/img/collection.jpg "Content collection")
 
-![Content photo item page](https://github.com/just-website/my-radio-app/blob/master/src/img/main.jpg "Content photo item")
+![Content photo item page](https://github.com/just-website/my-radio-app/blob/master/src/img/show-photo.jpg "Content photo item")
 
