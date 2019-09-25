@@ -15,3 +15,9 @@ Run `npm run dev` for a dev server. Navigate to `http://localhost:4200/` for bro
 
 ![Restore password page](https://github.com/just-website/my-radio-app/blob/master/src/img/restore.jpg "Restore")
 
+![Content main page](https://github.com/just-website/my-radio-app/blob/master/src/img/main.jpg "Content main")
+
+![Content collection page](https://github.com/just-website/my-radio-app/blob/master/src/img/main.jpg "Content collection")
+
+![Content photo item page](https://github.com/just-website/my-radio-app/blob/master/src/img/main.jpg "Content photo item")
+

@@ -17,7 +17,7 @@ import { Observable, fromEvent } from 'rxjs';
 
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  @ViewChild('wrapper', { static: false }) element: ElementRef;
+  // @ViewChild('wrapper', { static: false }) element: ElementRef;
   constructor(
     private http: UrlService,
     private unsplah: UnsplashService,

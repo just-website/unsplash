@@ -84,7 +84,7 @@ export const CardShowAnimation = (triggerName) => {
                 style({
                     opacity: 0,
                     transformOrigin: 'left',
-                    transform: 'rotateY(-90deg) translateX(-150px)'
+                    transform: 'rotateY(-90deg) translateX(-150px) scale(0.3)'
                 }),
                 stagger(100, [
                     animate('.3s ease-out', style({
