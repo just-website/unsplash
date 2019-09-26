@@ -55,12 +55,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return this.unsplah.getGroups(pageNum)
   }
 
-  setBlur(event, card) {
-    event ?
-      this.cardList.forEach(element => {
-        return element === card ? element.blur = false : element.blur = true
-      })
-      : this.cardList.forEach(element => element.blur = false)
+  private isBlur: boolean = false;
+  setBlur(event) {
+    this.isBlur = event;
+    // event ?
+    //   this.cardList.forEach(element => {
+    //     return element === card ? element.blur = false : element.blur = true
+    //   })
+    //   : this.cardList.forEach(element => element.blur = false)
   }
 
   // detectLastItem() {
@@ -83,8 +85,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         observer.unobserve(this.observeElem);
       }
     }, {
-      root: null, rootMargin: '0px', threshold: 1.0
-    }
+    root: null, rootMargin: '0px', threshold: 1.0
+  }
   )
 
   updateCardList() {

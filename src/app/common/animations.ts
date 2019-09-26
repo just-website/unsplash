@@ -83,13 +83,13 @@ export const CardShowAnimation = (triggerName) => {
             query(':enter:not(.loader)', [
                 style({
                     opacity: 0,
-                    transformOrigin: 'left',
-                    transform: 'rotateY(-90deg) translateX(-150px) scale(0.3)'
+                    transformOrigin: '0% 50%',
+                    transform: 'perspective(800px) scale(0.2) translate(-300%, 0%) translateZ(150px) rotateY(-180deg)'
                 }),
                 stagger(100, [
-                    animate('.3s ease-out', style({
-                        transformOrigin: '*',
-                        transform: '*',
+                    animate('.5s ease-out', style({
+                        transformOrigin: '0% 50%',
+                        transform: 'scale(1) translate(0%, 0%)  translateZ(0) rotateY(0)',
                         opacity: .5
                     })),
                     animate('.2s', style({ opacity: 1 })),
@@ -98,3 +98,4 @@ export const CardShowAnimation = (triggerName) => {
         ])
     ]);
 }
+// @keyframes rotateRight {

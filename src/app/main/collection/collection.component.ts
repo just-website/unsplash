@@ -43,12 +43,14 @@ export class CollectionComponent implements OnInit {
     })
   }
 
-  setBlur(event, photo) {
-    event ?
-      this.collection.forEach(element => {
-        return element === photo ? element.blur = false : element.blur = true
-      })
-      : this.collection.forEach(element => element.blur = false)
+  private isBlur: boolean = false;
+  setBlur(event) {
+    this.isBlur = event;
+    // event ?
+    //   this.collection.forEach(element => {
+    //     return element === photo ? element.blur = false : element.blur = true
+    //   })
+    //   : this.collection.forEach(element => element.blur = false)
   }
 
   showModal(photo) {
@@ -66,8 +68,8 @@ export class CollectionComponent implements OnInit {
         observer.unobserve(this.observeElem);
       }
     }, {
-      root: null, rootMargin: '0px', threshold: 1.0
-    }
+    root: null, rootMargin: '0px', threshold: 1.0
+  }
   )
 
   updateCardList() {

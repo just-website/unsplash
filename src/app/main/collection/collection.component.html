@@ -1,9 +1,8 @@
 <div class="content-container" [@listAnimation]="collection.length">
-    <div class="row mx-auto">
+    <div class="row mx-auto" [ngClass]="{'blur': isBlur}">
         <ng-container *ngIf="collection.length">
             <app-photo-item class="card-item" *ngFor="let photo of collection; index as i; last as isLast"
-                [photo]="photo" (onMouseEvent)="setBlur($event, photo)"
-                [blur]="photo.blur !== 'undefined' ? photo.blur : false" [lastItem]="isLast"
+                [photo]="photo" (onMouseEvent)="setBlur($event)" [lastItem]="isLast"
                 (showCurrentPhoto)="showModal($event)" (lastElemEvent)="setObsrve($event)">
             </app-photo-item>
         </ng-container>
